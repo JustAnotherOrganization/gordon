@@ -89,7 +89,10 @@ func main() {
 		for {
 			byt, err := jim.ReadSocketMessage(conn)
 			if err != nil {
+				// TODO properly format this and display it as a connection error
+				tiberiousWindow.InsertAtCursor(err.Error())
 				log.Print(err)
+				break
 			}
 
 			tiberiousWindow.InsertAtCursor(string(byt) + "\n")
